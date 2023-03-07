@@ -1,0 +1,20 @@
+.card__like-button {
+  background: url(../../../images/Vector\ \(3\).svg);
+  background-repeat: no-repeat;
+  width: 22px;
+  height: 19px;
+  margin: 0 20px 0 0;
+  padding: 0;
+  background-size: contain;
+  border: 0;
+  align-self: center;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__like-button:active {
+  background: url(../../../images/Union.png);
+}
