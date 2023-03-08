@@ -4,7 +4,7 @@
   padding-top: 40px;
   display: flex;
   position: relative;
-  
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1023px) {
