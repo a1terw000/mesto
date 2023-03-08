@@ -14,9 +14,6 @@
   white-space: nowrap;
   overflow: hidden;
   display: block;
-
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .form__input:first-of-type {
