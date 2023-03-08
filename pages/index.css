@@ -31,3 +31,4 @@
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
 @import url(../blocks/popup/_is-opened/popup_is-opened.css);
 @import url(../blocks/form/__input-label/_caption/form__input-label_caption.css);
+@import url(../blocks/profile/__information/profile__information.css);
