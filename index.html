@@ -15,14 +15,14 @@
     <main>
       <section class="profile">
         <div class="profile__information">
-          <img src="./images/image.jpg" alt="Жак-Ив Кусто" class="profile__photo">
+          <img src="./images/image.jpg" alt="Аватар пользователя" class="profile__photo">
           <div class="profile__info">
             <h1 class="profile__alias">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button"></button>
+            <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
             <p class="profile__caption">Исследователь океана</p>
           </div>
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button class="profile__add-button" type="button" aria-label="Добавить новую картинку"><img src="./images/Vector2.svg" alt="Добавить картинку" class="profile__add-button_width_low"></button>
       </section>
       <section class="elements">
         <ul class="cards">
@@ -30,42 +30,42 @@
             <img src="./images/MaskGroup.png" alt="Очень старое здание в Карачаевске" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Карачаевск</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
           <li class="card">
-            <img src="./images/MaskGroup(5).png" alt="Строгая и необыкновенная - гора Эльбрус" class="card__image">
+            <img src="./images/MaskGroup5.png" alt="Строгая и необыкновенная - гора Эльбрус" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Гора Эльбрус</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
           <li class="card">
-            <img src="./images/MaskGroup(1).png" alt="Домбай, одновременно любимое место посещение туристами, а также неплохо горнолыжный курорт" class="card__image">
+            <img src="./images/MaskGroup1.png" alt="Домбай, одновременно любимое место посещение туристами, а также неплохо горнолыжный курорт" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Домбай</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
           <li class="card">
-            <img src="./images/MaskGroup(5).png" alt="Строгая и необыкновенная - гора Эльбрус" class="card__image">
+            <img src="./images/MaskGroup5.png" alt="Строгая и необыкновенная - гора Эльбрус" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Гора Эльбрус</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
           <li class="card">
-            <img src="./images/MaskGroup(1).png" alt="Домбай, одновременно любимое место посещение туристами, а также неплохо горнолыжный курорт" class="card__image">
+            <img src="./images/MaskGroup1.png" alt="Домбай, одновременно любимое место посещение туристами, а также неплохо горнолыжный курорт" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Домбай</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
           <li class="card">
             <img src="./images/MaskGroup.png" alt="Очень старое здание в Карачаевске" class="card__image">
             <div class="card__integration">
               <h2 class="card__alies">Карачаево-Черкессия</h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__like-button" type="button" aria-label="Лайкнуть фотографию"></button>
             </div>
           </li>
         </ul>
@@ -74,19 +74,19 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2023 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button" type="button"></button>
-        <form class="popup__form">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <fieldset class="form">
-            <input type="text" id="popupName" class="form__input form__input-name" placeholder="Имя" value="Жак-Ив Кусто">
-            <input type="text" id="popupJob" class="form__input form__input-job" placeholder="О себе" value="Исследователь океана">
+        <button class="popup__close-button" type="button" aria-label="Закрыть окно редактирования"></button>
+        <form class="form" method="post" action="./index.html">
+          <h2 class="form__title">Редактировать профиль</h2>
+          <fieldset class="form__fieldset">
+            <input type="text" id="inputName" class="form__input" placeholder="Имя" value="" name="inputName">
+            <input type="text" id="inputJob" class="form__input" placeholder="О себе" value="" name="inputJob">
           </fieldset>
-          <button class="popup__submit-button" type="submit">Сохранить</button>
+          <button class="popup__submit-button" type="submit"  aria-label="Сохранить изменения">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
   </div>
   <script src="./scripts/index.js"></script>
 </body>

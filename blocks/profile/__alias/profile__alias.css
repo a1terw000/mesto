@@ -1,5 +1,5 @@
 .profile__alias {
-  box-sizing: content-box;
+  max-height: 50px;
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
@@ -11,8 +11,13 @@
 
 @media screen and (max-width: 1023px) {
   .profile__alias {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__alias {
     font-size: 27px;
     line-height: 33px;
-    text-align: center;
   }
 }

@@ -6,11 +6,20 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1023px) {
   .profile__caption {
     text-align: center;
-    
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile__caption {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 0;
   }
 }

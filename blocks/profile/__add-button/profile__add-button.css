@@ -6,9 +6,7 @@
   box-sizing: border-box;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
-  background: url(../../../images/Vector\ \(2\).svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: #000;
   align-self: center;
 }
 
