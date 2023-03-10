@@ -6,7 +6,9 @@
   box-sizing: border-box;
   border: 2px solid #FFFFFF;
   border-radius: 2px;
-  background-color: #000;
+  background: url(../../../images/Vector2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
   align-self: center;
 }
 
@@ -28,3 +30,10 @@
     height: 50px;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .profile__add-button {
+    background-size: 18px, 18px;
+  }
+}
+
