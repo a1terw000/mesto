@@ -1,5 +1,5 @@
 @media screen and (max-width: 767px) {
-  .profile__add-button_less-width {
+  .profile__add-button_width_less {
     width: 18px;
   }
 }
