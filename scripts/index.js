@@ -6,7 +6,6 @@ const figureCaption = popupImage.querySelector('.figure__caption');
 const popupEditCloseButtonElement = popupEditProfile.querySelector('.popup__close-button');
 const popupAddCardButtonElement = popupAddCard.querySelector('.popup__close-button');
 const popupImageCloseButton = popupImage.querySelector('.popup__close-button');
-
 const profileElement = document.querySelector('.profile');
 const profileEditButtonElement = profileElement.querySelector('.profile__edit-button');
 const profileAddButtonElement = profileElement.querySelector('.profile__add-button');
