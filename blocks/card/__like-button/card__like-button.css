@@ -4,17 +4,13 @@
   width: 22px;
   height: 19px;
   margin: 0 20px 0 0;
-  padding: 0;
-  background-size: contain;
+  padding: 0 20px 0 0 ;
   border: 0;
   align-self: center;
 }
 
 .card__like-button:hover {
+  transition: 0.5s;
   opacity: 0.5;
   cursor: pointer;
-}
-
-.card__like-button:active {
-  background: url(../../../images/Union23123.svg);
 }
