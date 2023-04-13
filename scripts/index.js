@@ -1,3 +1,4 @@
+const popupItems = document.querySelectorAll('.popup');
 const popupEditProfile = document.querySelector('#popup_edit-profile');
 const popupAddCard = document.querySelector('#popup_cards');
 const popupImage = document.querySelector('#popup_image');
@@ -13,22 +14,44 @@ const profileAliasElement = profileElement.querySelector('.profile__alias');
 const profileCaptionElement = profileElement.querySelector('.profile__caption');
 
 const profileAddFormElement = popupAddCard.querySelector('.form');
-const inputTitle = popupAddCard.querySelector('#inputTitle');
-const inputUrl = popupAddCard.querySelector('#inputUrl');
+const inputTitle = popupAddCard.querySelector('#title');
+const inputUrl = popupAddCard.querySelector('#url');
 const profileEditFormElement = popupEditProfile.querySelector('.form');
-const inputName = profileEditFormElement.querySelector('#inputName');
-const inputJob = profileEditFormElement.querySelector('#inputJob');
+const inputName = profileEditFormElement.querySelector('#name');
+const inputJob = profileEditFormElement.querySelector('#job');
 
 const templateElement = document.querySelector('#template').content;
 const list = document.querySelector('.cards');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupWhenClickOnEscape);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupWhenClickOnEscape);
 }
+
+function closePopupWhenClickOnEscape(evt) {
+  const popupOpen = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpen);
+  }
+}
+
+function closePopupWhenClickOnOverlay(evt) {
+  if (evt.currentTarget === evt.target) {
+    closePopup(evt.currentTarget);
+  }
+}
+
+popupItems.forEach((item) => item.addEventListener('click', closePopupWhenClickOnOverlay))
+
+document.querySelectorAll('.popup__close-button').forEach(button => {
+  const buttonsPopup = button.closest('.popup'); // нашли родителя с нужным классом
+  button.addEventListener('click', () => closePopup(buttonsPopup)); // закрыли попап
+}); 
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -80,12 +103,15 @@ profileAddFormElement.addEventListener('submit', (evt) => {
 
 
 profileEditButtonElement.addEventListener('click', () => {
-  openPopup(popupEditProfile);
   inputName.value = profileAliasElement.textContent;
   inputJob.value = profileCaptionElement.textContent;
+  openPopup(popupEditProfile);
 });
-popupEditCloseButtonElement.addEventListener('click', function () { closePopup(popupEditProfile)});
+
+profileAddButtonElement.addEventListener('click', () => {
+  profileAddFormElement.reset();
+  openPopup(popupAddCard);
+});
+
 profileEditFormElement.addEventListener('submit', handleFormSubmit);
-profileAddButtonElement.addEventListener('click', () => openPopup(popupAddCard));
-popupAddCardButtonElement.addEventListener('click', () => closePopup(popupAddCard));
-popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
+

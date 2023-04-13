@@ -12,6 +12,7 @@
   height: 50px;
   background-color: #000;
   border-radius: 2px;
+  box-sizing: border-box;
 }
 
 .popup__submit-button:hover {

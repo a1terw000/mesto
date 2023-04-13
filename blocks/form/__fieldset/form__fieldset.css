@@ -8,6 +8,7 @@
 
 @media screen and (max-width: 767px) {
   .form__fieldset {
-    padding:  75px 0 45px 0;
+    max-width: 238px;
+    padding: 75px 0 45px 0;
   }
 }

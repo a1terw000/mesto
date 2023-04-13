@@ -38,3 +38,7 @@
 @import url(../blocks/figure/figure.css);
 @import url(../blocks/figure/__image/figure__image.css);
 @import url(../blocks/figure/__caption/figure__caption.css);
+@import url(../blocks/form/__error/form__error.css);
+@import url(../blocks/form/__error/_visible/form__error_visible.css);
+@import url(../blocks/popup/__submit-button/_disabled/popup__submit-button_disabled.css);
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
