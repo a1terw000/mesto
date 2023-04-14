@@ -122,6 +122,7 @@ profileEditButtonElement.addEventListener('click', () => {
 
 profileAddButtonElement.addEventListener('click', () => {
   profileAddFormElement.reset();
+  deleteTextSpanWhenOpenForm(profileAddFormElement);
   openPopup(popupAddCard);
   toggleButtonState(inputListInAddForm, buttonSubmitAddForm, validationCfg.disabledButtonClass);
 });
