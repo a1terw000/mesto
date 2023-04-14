@@ -28,7 +28,7 @@ function setEventListener(inputList, button, disabledButtonClass, spanErrorClass
 }
 
 function checkValidationFunction(input, spanErrorClass, errorClass, inputErrorClass) {
-  const textNoValid = document.querySelector(`${spanErrorClass}${input.name}`);
+  const textNoValid = document.querySelector(`${spanErrorClass}${input.id}`);
   if (!input.validity.valid) {
     showInputError(input, textNoValid, spanErrorClass, errorClass, inputErrorClass);
   } else {

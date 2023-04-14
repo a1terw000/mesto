@@ -14,6 +14,8 @@ const profileAliasElement = profileElement.querySelector('.profile__alias');
 const profileCaptionElement = profileElement.querySelector('.profile__caption');
 
 const profileAddFormElement = popupAddCard.querySelector('.form');
+const buttonSubmitAddForm =  profileAddFormElement.querySelector('.popup__submit-button');
+const inputListInAddForm = profileAddFormElement.querySelectorAll('.form__input');
 const inputTitle = popupAddCard.querySelector('#title');
 const inputUrl = popupAddCard.querySelector('#url');
 const profileEditFormElement = popupEditProfile.querySelector('.form');
@@ -34,8 +36,8 @@ function closePopup(popup) {
 }
 
 function closePopupWhenClickOnEscape(evt) {
-  const popupOpen = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
+    const popupOpen = document.querySelector('.popup_opened');
     closePopup(popupOpen);
   }
 }
@@ -91,6 +93,16 @@ initialCards.forEach((element) => {
   list.append(newCard);
 });
 
+
+function deleteTextSpanWhenOpenForm(form) {
+  form.querySelectorAll(validationCfg.inputSelector).forEach((input) => {
+    const spanTextNoValid = document.querySelector(`${validationCfg.spanErrorClass}${input.id}`)
+    if (!input.validity.valid) {
+      hideInputError(input, spanTextNoValid, validationCfg.spanErrorClass, validationCfg.errorClass, validationCfg.inputErrorClass);
+    }
+  });
+}
+
 profileAddFormElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
@@ -101,8 +113,8 @@ profileAddFormElement.addEventListener('submit', (evt) => {
   closePopup(popupAddCard);
 });
 
-
 profileEditButtonElement.addEventListener('click', () => {
+  deleteTextSpanWhenOpenForm(profileEditFormElement);
   inputName.value = profileAliasElement.textContent;
   inputJob.value = profileCaptionElement.textContent;
   openPopup(popupEditProfile);
@@ -111,6 +123,7 @@ profileEditButtonElement.addEventListener('click', () => {
 profileAddButtonElement.addEventListener('click', () => {
   profileAddFormElement.reset();
   openPopup(popupAddCard);
+  toggleButtonState(inputListInAddForm, buttonSubmitAddForm, validationCfg.disabledButtonClass);
 });
 
 profileEditFormElement.addEventListener('submit', handleFormSubmit);
