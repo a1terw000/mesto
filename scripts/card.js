@@ -1,26 +1,42 @@
-const initialCards = [
-  {
-    name: 'Dota 2',
-    link: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg'
-  },
-  {
-    name: 'Cybersport',
-    link: 'https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    name: 'Блуждающий',
-    link: 'https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+export default class Card {
+  constructor(cardData, templateElement, openPopupFunc) {
+    this._cardData = cardData;
+    this._templateElement = templateElement;
+    this._openImagePopup = openPopupFunc;
   }
-];
+
+  _templateClone() {
+    return document.querySelector(this._templateElement).content.querySelector('.card').cloneNode(true);
+  }
+
+  _likeEffect(evt) {
+    evt.target.classList.toggle('card__like-button_active');
+  }
+
+  _deleteCard(evt) {
+    evt.target.closest('.card').remove();
+  }
+
+  _openImagePopupFunction = () => {
+    this._openImagePopup(this._cardData);
+  }
+
+  _setEventListener() {
+    this._likeElement.addEventListener('click', this._likeEffect);
+    this._trashElement.addEventListener('click', this._deleteCard);
+    this._imageElement.addEventListener('click', this._openImagePopupFunction);
+  }
+
+  createCard() {
+    this._templateCloneElement = this._templateClone();
+    this._imageElement = this._templateCloneElement.querySelector('.card__image');
+    this._aliesElement = this._templateCloneElement.querySelector('.card__alies');
+    this._likeElement = this._templateCloneElement.querySelector('.card__like-button');
+    this._trashElement = this._templateCloneElement.querySelector('.card__trash');
+    this._imageElement.src = this._cardData.link;
+    this._imageElement.alt = this._cardData.name;
+    this._aliesElement.textContent = this._cardData.name;
+    this._setEventListener();
+    return this._templateCloneElement
+  }
+}
