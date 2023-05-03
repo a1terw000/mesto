@@ -92,18 +92,22 @@ function handleFormSubmit(evt) {
   closePopup(popupEditProfile);
 }
 
+function createCard(item) {
+  const newCard = new Card(item, templateElement, openImagePopup);
+  const cardElement = newCard.createCard();
+  return cardElement
+}
+
 /* загрузка на страницу первоначальных карточек */
 initialCards.forEach((element) => {
-  const newCard = new Card(element, templateElement, openImagePopup);
-  list.append(newCard.createCard());
+  list.append(createCard(element));
 });
 
 /* работа submit формы при добавлении карточки */
 profileAddFormElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const userObject = { name: inputTitle.value, link: inputUrl.value };
-  const card = new Card (userObject, templateElement, openImagePopup);
-  list.prepend(card.createCard());
+  list.prepend(createCard(userObject));
   closePopup(popupAddCard);
   evt.target.reset();
 });
