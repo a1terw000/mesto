@@ -4,7 +4,7 @@ export default class Card {
     this._templateElement = templateElement;
     this._openImagePopup = openPopupFunc;
   }
-
+  
   _templateClone() {
     return document.querySelector(this._templateElement).content.querySelector('.card').cloneNode(true);
   }
@@ -34,8 +34,8 @@ export default class Card {
     this._likeElement = this._templateCloneElement.querySelector('.card__like-button');
     this._trashElement = this._templateCloneElement.querySelector('.card__trash');
     this._imageElement.src = this._cardData.link;
-    this._imageElement.alt = this._cardData.name;
-    this._aliesElement.textContent = this._cardData.name;
+    this._imageElement.alt = this._cardData.title;
+    this._aliesElement.textContent = this._cardData.title;
     this._setEventListener();
     return this._templateCloneElement
   }
