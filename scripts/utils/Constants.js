@@ -1,27 +1,27 @@
 export const initialCards = [
   {
-    title: 'Dota 2',
-    link: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota2_social.jpg'
-  },
-  {
-    title: 'Cybersport',
-    link: 'https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
-  },
-  {
-    title: 'Блуждающий',
-    link: 'https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80'
-  },
-  {
-    title: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    title: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   },
   {
     title: 'Холмогорский район',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
   },
   {
-    title: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    title: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    title: 'まかなた',
+    link: 'https://sun9-60.userapi.com/impg/Msu8Rb4kyjjxa62p7sUMtxoaqM-ZJe2sOzk47g/L0PmIDu00i0.jpg?size=750x750&quality=95&sign=d7f8fb80f959818f92bae01351207fa6&type=album'
+  },
+  {
+    title: 'マハたらたはた',
+    link: 'https://i.pinimg.com/originals/29/b3/b5/29b3b5a4faba282f53d3e6f0f459796f.jpg'
+  },
+  {
+    title: '山佐',
+    link: 'https://sun9-78.userapi.com/impg/CuQALtrawoWL6cnNlPTMdBY_AUTic3_slQ7X-Q/oehjnsqmSp4.jpg?size=736x552&quality=96&sign=c6842832f55406977d85372077598c0e&type=album'
   }
 ];
 
