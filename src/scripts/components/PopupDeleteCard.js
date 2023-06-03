@@ -3,6 +3,7 @@ import Popup from "./Popup.js";
 export default class PopupDeleteCard extends Popup {
   constructor(PopupSelector, submitCallbackFunc) {
     super(PopupSelector);
+    this._form = this._popup.querySelector('.form');
     this._submitCallbackFunc = submitCallbackFunc;
   }
 

@@ -33,16 +33,6 @@ const userInfo = new UserInfo(initialInfoObject);
 // попап с картинкой
 const popupImage = new PopupWithImage(popupImageSelector);
 
-const popupDelete = new PopupDeleteCard(popupDeleteCardSelector, ({item, cardId}) => {
-  api.deleteCard(cardId)
-    .then(() => {
-      item.removeCard()
-      popupDelete.close()
-    })
-    .catch((error) => console.error(`Ошибка при удалении карточки: ${error}`))
-    .finally()  
-})
-
 function createNewCards(item) {
   const newCard = new Card(item, templateSelector, popupImage.open, popupDelete.open, (likeElement, cardId) => {
     if (likeElement.classList.contains('card__like-button_active')) {
@@ -74,18 +64,19 @@ const popupProfile = new PopupWithForm(popupProfileSelector, (userData) => {
       popupProfile.close()
     })
     .catch((error) => console.error(`Ошибка обновления данных профиля: ${error}`))
-    .finally(() => popupEditAvatar.setupDefaultText())
+    .finally(() => popupEditProfile.setupDefaultText())
 })  
 
 const popupAddCard = new PopupWithForm(popupAddCardSelector, (userData) => {
-  Promise.all([api.getUserInfo(), api.addCard(userData)])
-    .then(([userData, cardData]) => {
-      cardData.myId = userData._id;
-      section.addItemPrepend(createNewCards(cardData));
-      popupAddCard.close();
+  api.addCard(userData)
+    .then((cardData) => {
+      console.log(cardData)
+      cardData.myId = cardData.owner._id;
+      section.addItemPrepend(createNewCards(cardData))
+      popupAddCard.close()
     })
     .catch((error) => console.error(`Ошибка создания новой карточки: ${error}`))
-    .finally(() => popupEditAvatar.setupDefaultText())
+    .finally(() => popupAddCard.setupDefaultText())
 })
 
 const popupEditAvatar = new PopupWithForm(popupAvatarSelector, (userData) => {
@@ -96,6 +87,16 @@ const popupEditAvatar = new PopupWithForm(popupAvatarSelector, (userData) => {
     })
     .catch((error) => console.error(`Ошибка при обновлении аватарки: ${error}`))
     .finally(() => popupEditAvatar.setupDefaultText())
+})
+
+const popupDelete = new PopupDeleteCard(popupDeleteCardSelector, ({item, cardId}) => {
+  api.deleteCard(cardId)
+    .then(() => {
+      item.removeCard()
+      popupDelete.close()
+    })
+    .catch((error) => console.error(`Ошибка при удалении карточки: ${error}`))
+    .finally()  
 })
 
 const forms = {};
@@ -134,8 +135,9 @@ popupImage.setEventListener();
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cardData]) => {
     cardData.forEach(element => element.myId = userData._id)
+    cardData.myId = userData._id;
     userInfo.setUserInfo({name: userData.name, info: userData.about, avatar: userData.avatar})
-    section.renderItems(cardData);  
+    section.renderItems(cardData);
   })
   .catch((error) => console.error(`Ошибка загрузки начальных данных: ${error}`))
   .finally()

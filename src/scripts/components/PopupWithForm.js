@@ -3,6 +3,7 @@ import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitCallbackFunc) {
     super(popupSelector);
+    this._form = this._popup.querySelector('.form');
     this._submitCallbackFunc = submitCallbackFunc;
     this._inputList = this._form.querySelectorAll('.form__input');
     this._submitButton = this._form.querySelector('.popup__submit-button');
@@ -30,7 +31,6 @@ export default class PopupWithForm extends Popup {
 
   open() {
     super.open();
-    this._submitButton.textContent = this._defaultButtonText;
   }
 
   setupDefaultText() {
